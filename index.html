@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game & Earn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-12 py-12 relative overflow-hidden">
+
+  <!-- Background glow -->
+  <div class="absolute w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-green-500/10 rounded-full blur-3xl top-[-150px] left-[-150px]"></div>
+  <div class="absolute w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] bg-yellow-500/10 rounded-full blur-3xl bottom-[-120px] right-[-120px]"></div>
+
+  <div class="text-center max-w-4xl relative z-10">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+      Turn Your <span class="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Gaming Skills</span>
+      Into Real <span class="bg-gradient-to-r from-green-400 to-green-200 bg-clip-text text-transparent">Cash!</span>
+    </h1>
+
+    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 px-2 sm:px-0">
+      <span class="inline-flex items-center gap-2"><i data-lucide="gamepad-2" class="w-5 h-5"></i> Play</span>,
+      <span class="inline-flex items-center gap-2"><i data-lucide="trophy" class="w-5 h-5"></i> Win</span>,
+      <span class="inline-flex items-center gap-2"><i data-lucide="dollar-sign" class="w-5 h-5"></i> Earn</span>. 
+      It's not just gaming—it's your chance to stack up real rewards.
+    </p>
+
+    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-yellow-400 mb-6">Coming Soon</h2>
+
+    <!-- Countdown Box -->
+    <div class="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8 grid grid-cols-2 sm:flex gap-4 sm:gap-6 justify-center items-center shadow-lg">
+      <div class="flex flex-col items-center flex-1">
+        <span id="days" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">00</span>
+        <span class="text-xs sm:text-sm md:text-base text-gray-400">Days</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <span id="hours" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">00</span>
+        <span class="text-xs sm:text-sm md:text-base text-gray-400">Hours</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <span id="minutes" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">00</span>
+        <span class="text-xs sm:text-sm md:text-base text-gray-400">Minutes</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <span id="seconds" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">00</span>
+        <span class="text-xs sm:text-sm md:text-base text-gray-400">Seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const targetDate = new Date("2025-12-07T17:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }, 1000);
+  </script>
+</body>
+</html>
